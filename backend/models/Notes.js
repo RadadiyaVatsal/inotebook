@@ -1,10 +1,14 @@
 const { toBeRequired } = require('@testing-library/jest-dom/matchers');
 const { type } = require('@testing-library/user-event/dist/type');
 const mongoose=require('mongoose');
-
+const {Schema} = mongoose;
 
 const NotesSchema = new Schema({
-   name:{
+   user:{
+      type:mongoose.Schema.ObjectId, // this is like foreign key it works similarly
+      ref:'user'
+   },
+   title:{
     type:String,
     required:true
    },

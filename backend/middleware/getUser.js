@@ -12,7 +12,6 @@ const fetchUser= (req , res , next) =>{
     try {
     const data=jwt.verify(token , JWT_SECRET);
     req.user = data.user;
-    console.log('Decoded user:', req.user);
     next(); //will call next fucntion in auth.js file
     }
     catch (error) {
