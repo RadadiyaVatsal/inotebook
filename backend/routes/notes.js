@@ -90,4 +90,36 @@ router.put('/updatenote/:id', fetchUser, async (req, res) => {
   }
 });
 
+
+
+// Route 4: Delete a note using DELETE : http://localhost:3020/api/notes/deletenote/:id
+router.delete('/deletenote/:id', fetchUser, async (req, res) => {
+  const noteID = req.params.id; // this will be noteID
+  try {
+   
+
+    // Getting entire entry of the note which user requests to delete
+    const noteToBeDeleted= await Notes.findById(noteID);
+
+    // If such record / note does not exist then we cannot delete it, so just return user
+    if (!noteToBeDeleted) {
+      return res.status(400).send("Such note is not found");
+    }
+
+
+    // If found, then check whether user deletes his/her own note or not
+    if (req.user.id !== noteToBeDeleted.user.toString()) {
+      return res.status(401).send("You can not change other's note");
+    }
+
+    // If user deletes his/her own note, then do it
+   
+    const deletedNote = await Notes.findOneAndDelete(noteID);
+    res.json({"Success" :"successfully deleted", deletedNote});
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send("Internal server error occurred");
+  }
+});
+
 module.exports = router;
