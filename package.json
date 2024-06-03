@@ -19,10 +19,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-alt": "cross-env PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "both": "concurrently \"npm run start\" \"npx nodemon backend/index.js\""
+    "start-backend": "npx nodemon backend/index.js",
+    "both": "concurrently \"npm run start\" \"npm run start-backend\"",
+    "both-alt": "concurrently \"npm run start-alt\" \"npm run start-backend\""
   },
   "eslintConfig": {
     "extends": [
