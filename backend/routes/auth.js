@@ -25,7 +25,7 @@ router.post('/create-user', [
     .custom(async (email) => {
       const existingUser = await User.findOne({ email });
       if (existingUser) {
-        throw new Error('Email already in use');
+        throw new Error('This email already has one account');
       }
     })
 ], async (req, res) => {
