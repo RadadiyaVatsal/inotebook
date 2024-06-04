@@ -18,7 +18,7 @@ const Signup = () => {
       return;
     }
 
-    const response = await fetch("http://localhost:3020/api/auth/create-user", {
+    const response = await fetch("https://inotebook-backend-35w8.onrender.com/api/auth/create-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

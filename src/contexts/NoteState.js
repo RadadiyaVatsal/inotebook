@@ -6,7 +6,7 @@ const NoteState = (props) => {
   const alertContext = useContext(AlertContext);
   const { updateMsg } = alertContext;
 
-  const host = "http://localhost:3020/api/";
+  const host = "https://inotebook-backend-35w8.onrender.com/api/";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
   const [authToken,setToken] = useState(localStorage.getItem("token"));

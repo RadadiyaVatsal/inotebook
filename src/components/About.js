@@ -6,7 +6,7 @@ const About = () => {
   return (
     <>
       <div>
-         it is about section
+           I have created this project with the help of tutorial of code with harry 
         </div>
     </>
   );
