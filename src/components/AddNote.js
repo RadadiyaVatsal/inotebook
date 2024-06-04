@@ -4,7 +4,7 @@ const AddNote = () => {
     const context = useContext(noteContext);
     const {addNote} = context; //destructoring
 
-    const [note, setNote] = useState({title: "", description: "", tag: "default"})
+    const [note, setNote] = useState({title: "", description: "", tag: ""})
 
     const handleClick = (e)=>{
         e.preventDefault(); // this will not load the page becaue if page is loaded then changes will be discarded 

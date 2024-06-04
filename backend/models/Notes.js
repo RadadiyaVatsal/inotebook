@@ -15,8 +15,7 @@ const NotesSchema = new Schema({
     required:true,
    },
    tag:{
-    type:String,
-    default:"General"
+    type:String
    },
    
    date:{
